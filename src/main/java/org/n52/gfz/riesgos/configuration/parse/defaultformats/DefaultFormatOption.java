@@ -136,6 +136,13 @@ public enum DefaultFormatOption implements IMimeTypeAndSchemaConstants {
                     null,
                     true)),
 
+    WFS("wfs",
+            new FormatEntry(
+                    MIME_TYPE_WFS,
+                    null,
+                    null,
+                    true)),
+
     /**
      * Enum for nrml.
      */

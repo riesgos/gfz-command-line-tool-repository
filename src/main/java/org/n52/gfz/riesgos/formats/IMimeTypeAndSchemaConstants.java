@@ -60,6 +60,8 @@ public interface IMimeTypeAndSchemaConstants {
      */
     String MIME_TYPE_WMS = "application/WMS";
 
+    String MIME_TYPE_WFS = "application/WFS";
+
     /**
      * Schema for quakeML.
      */

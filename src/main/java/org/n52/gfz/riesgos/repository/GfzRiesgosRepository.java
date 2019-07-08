@@ -25,6 +25,7 @@ import org.n52.gfz.riesgos.formats.quakeml.generators.QuakeMLGML3Generator;
 import org.n52.gfz.riesgos.formats.quakeml.generators.QuakeMLGeoJsonGenerator;
 import org.n52.gfz.riesgos.formats.quakeml.generators.QuakeMLOriginalXmlGenerator;
 import org.n52.gfz.riesgos.formats.quakeml.generators.QuakeMLValidatedXmlGenerator;
+import org.n52.gfz.riesgos.formats.quakeml.generators.QuakeMLWFSGenerator;
 import org.n52.gfz.riesgos.formats.quakeml.parsers.QuakeMLGML3Parser;
 import org.n52.gfz.riesgos.formats.quakeml.parsers.QuakeMLGeoJsonParser;
 import org.n52.gfz.riesgos.formats.quakeml.parsers.QuakeMLOriginalXmlParser;
@@ -95,6 +96,7 @@ public class GfzRiesgosRepository implements ITransactionalAlgorithmRepository {
                 new QuakeMLOriginalXmlGenerator(),
                 new QuakeMLGeoJsonGenerator(),
                 new QuakeMLGML3Generator(),
+                new QuakeMLWFSGenerator(),
                 // shakemap
                 new ShakemapXmlGenerator(),
                 new ShakemapGeoJsonGenerator(),
