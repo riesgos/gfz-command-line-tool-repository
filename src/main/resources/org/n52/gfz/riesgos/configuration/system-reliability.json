@@ -1,0 +1,51 @@
+{
+    "title": "SystemReliabilityProcess",
+    "abstract": "Process for performing the reliability of infrastructure networks",
+    "imageId": "gfzriesgos/system_reliability:latest",
+    "workingDirectory": "/usr/share/git/system_reliability",
+    "commandToExecute": "python3 System_Reliability_Analysis_local.py",
+    "exitValueHandler": "logging",
+    "stderrHandler": "pythonTraceback",
+    "input": [
+      {
+          "title": "damage_nodes",
+          "abstract": "Output from Damage web-service",
+          "useAs": "file",
+          "type": "geojson",
+          "path": "E1_EPN_ExposureNodes_withDamage.geojson"
+      },
+      {
+          "title": "exposure_lines",
+          "abstract": "Information of the exposure corresponding to the topology of the network",
+          "useAs": "file",
+          "type": "geojson",
+          "path":  "E1_EPN_ExposureLines.geojson",
+          "optional": true
+      },
+      {
+          "title": "exposure_consumer_areas",
+          "abstract": "Information of the exposure corresponding to the consumer areas",
+          "useAs": "file",
+          "type": "geojson",
+          "path":  "E1_EPN_ExposureConsumerAreas.geojson",
+          "optional": true
+      },
+      {
+          "title": "network_fragility",
+          "abstract": "Information about the fragility parameters for the network taxonomy",
+          "useAs": "file",
+          "type": "geojson",
+          "path": "NetworkFragility.json",
+          "optional": true
+      }
+    ],
+    "output": [
+      {
+        "title": "damage_consumer_areas",
+        "abstract": "Damage in the consumer areas",
+        "readFrom": "file",
+        "path": "E1_EPN_ExposureConsumerAreas_withDamage.geojson",
+        "type": "geojson"
+      }
+    ]
+  }
