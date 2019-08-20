@@ -162,6 +162,7 @@
               <stringProp name="-256302106">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedShakygroundProcess&lt;/ows:Identifier&gt;</stringProp>
               <stringProp name="1386138546">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedFlooddamageProcess&lt;/ows:Identifier&gt;</stringProp>
               <stringProp name="878428869">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedQuakeledgerProcess&lt;/ows:Identifier&gt;</stringProp>
+              <stringProp name="1227617234">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1314,6 +1315,237 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DescribeProcess SystemReliability" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="request" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">describeProcess</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">request</stringProp>
+              </elementProp>
+              <elementProp name="identifier" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">identifier</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Description Document" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-680567776">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wps:ProcessOfferings xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd&quot;&gt;
+  &lt;wps:ProcessOffering processVersion=&quot;1.0.0&quot; jobControlOptions=&quot;sync-execute async-execute&quot; outputTransmission=&quot;value reference&quot;&gt;
+    &lt;wps:Process&gt;
+      &lt;ows:Title&gt;SystemReliabilityProcess&lt;/ows:Title&gt;
+      &lt;ows:Abstract&gt;Process for performing the reliability of infrastructure networks&lt;/ows:Abstract&gt;
+      &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;
+      &lt;wps:Input minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;damage_nodes&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Output from Damage web-service&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;damage_nodes&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;exposure_lines&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information of the exposure corresponding to the topology of the network&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;exposure_lines&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;exposure_consumer_areas&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information of the exposure corresponding to the consumer areas&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;exposure_consumer_areas&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;network_fragility&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information about the fragility parameters for the network taxonomy&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;network_fragility&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Output&gt;
+        &lt;ows:Title&gt;damage_consumer_areas&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Damage in the consumer areas&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;damage_consumer_areas&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/WMS&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Output&gt;
+    &lt;/wps:Process&gt;
+  &lt;/wps:ProcessOffering&gt;
+&lt;/wps:ProcessOfferings&gt;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DescribeProcess FlooddamageTiffDownloader" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -2259,6 +2491,7 @@
               <stringProp name="-256302106">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedShakygroundProcess&lt;/ows:Identifier&gt;</stringProp>
               <stringProp name="1386138546">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedFlooddamageProcess&lt;/ows:Identifier&gt;</stringProp>
               <stringProp name="878428869">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.CachedQuakeledgerProcess&lt;/ows:Identifier&gt;</stringProp>
+              <stringProp name="1227617234">&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3398,6 +3631,237 @@
         &lt;ows:Identifier&gt;damage_buildings&lt;/ows:Identifier&gt;
         &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
           &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/json&quot; encoding=&quot;UTF-8&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Output&gt;
+    &lt;/wps:Process&gt;
+  &lt;/wps:ProcessOffering&gt;
+&lt;/wps:ProcessOfferings&gt;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DescribeProcess SystemReliability" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;wps:DescribeProcess&#xd;
+	xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot;&#xd;
+	xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot;&#xd;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#xd;
+	xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0 ../wps.xsd&quot;&#xd;
+	service=&quot;WPS&quot;&#xd;
+	version=&quot;2.0.0&quot;&gt;&#xd;
+	&lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;&#xd;
+&lt;/wps:DescribeProcess&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Description Document" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-680567776">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wps:ProcessOfferings xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0 http://schemas.opengis.net/wps/2.0/wps.xsd&quot;&gt;
+  &lt;wps:ProcessOffering processVersion=&quot;1.0.0&quot; jobControlOptions=&quot;sync-execute async-execute&quot; outputTransmission=&quot;value reference&quot;&gt;
+    &lt;wps:Process&gt;
+      &lt;ows:Title&gt;SystemReliabilityProcess&lt;/ows:Title&gt;
+      &lt;ows:Abstract&gt;Process for performing the reliability of infrastructure networks&lt;/ows:Abstract&gt;
+      &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;
+      &lt;wps:Input minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;damage_nodes&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Output from Damage web-service&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;damage_nodes&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;exposure_lines&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information of the exposure corresponding to the topology of the network&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;exposure_lines&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;exposure_consumer_areas&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information of the exposure corresponding to the consumer areas&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;exposure_consumer_areas&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Input minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+        &lt;ows:Title&gt;network_fragility&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Information about the fragility parameters for the network taxonomy&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;network_fragility&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-wkt&quot; encoding=&quot;Base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+        &lt;/wps:ComplexData&gt;
+      &lt;/wps:Input&gt;
+      &lt;wps:Output&gt;
+        &lt;ows:Title&gt;damage_consumer_areas&lt;/ows:Title&gt;
+        &lt;ows:Abstract&gt;Damage in the consumer areas&lt;/ows:Abstract&gt;
+        &lt;ows:Identifier&gt;damage_consumer_areas&lt;/ows:Identifier&gt;
+        &lt;wps:ComplexData xmlns:ns=&quot;http://www.opengis.net/wps/2.0&quot;&gt;
+          &lt;ns:Format default=&quot;true&quot; mimeType=&quot;application/WMS&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.google-earth.kml+xml&quot; schema=&quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/x-zipped-shp&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; encoding=&quot;base64&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/2.0.0/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/2.1.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2.1/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.0.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.0.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.0&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.0/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.1.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.1.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml; subtype=gml/3.2.1&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://geoserver.itc.nl:8080/wps/schemas/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/2.1.2/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;text/xml&quot; schema=&quot;http://www.opengeospatial.org/gmlpacket.xsd&quot;/&gt;
+          &lt;ns:Format mimeType=&quot;application/vnd.geo+json&quot;/&gt;
         &lt;/wps:ComplexData&gt;
       &lt;/wps:Output&gt;
     &lt;/wps:Process&gt;
@@ -4636,6 +5100,316 @@
               <stringProp name="1520905033">&lt;n52:the_geom&gt;</stringProp>
               <stringProp name="548720376">&lt;gml:MultiPoint srsDimension=&quot;2&quot; srsName=&quot;WGS84(DD)&quot;&gt;</stringProp>
               <stringProp name="-1984867271">&lt;wps:Result</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Quakeledger with QuakeML output (reference)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;wps:Execute service=&quot;WPS&quot; version=&quot;2.0.0&quot; xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0        http://schemas.opengis.net/wps/2.0/wpsExecute.xsd&quot; response=&quot;document&quot; mode=&quot;sync&quot;&gt;&#xd;
+    &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.QuakeledgerProcess&lt;/ows:Identifier&gt;&#xd;
+    &lt;wps:Input id=&quot;mmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;6.6&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;mmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;8.5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;140&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;p&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;0.1&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;etype&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;deaggregation&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlon&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-71.5730623712764&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlat&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-33.1299174879672&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;input-boundingbox&quot;&gt;&#xd;
+        &lt;wps:Data&gt;&#xd;
+            &lt;ows:BoundingBox crs=&quot;EPSG:4326&quot; dimensions=&quot;2&quot;&gt;&#xd;
+                &lt;ows:LowerCorner&gt;-33.56886118255556 -72.1142578125&lt;/ows:LowerCorner&gt;&#xd;
+                &lt;ows:UpperCorner&gt;-32.6671247331203 -70.938720703125&lt;/ows:UpperCorner&gt;&#xd;
+            &lt;/ows:BoundingBox&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Output id=&quot;selectedRows&quot; transmission=&quot;reference&quot; mimeType=&quot;text/xml&quot; schema=&quot;http://quakeml.org/xmlns/quakeml/1.2/QuakeML-1.2.xsd&quot; encoding=&quot;UTF-8&quot;&gt;&lt;/wps:Output&gt;&#xd;
+&lt;/wps:Execute&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Data Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-35725261">&lt;wps:Output id=&quot;selectedRows&quot;&gt;</stringProp>
+              <stringProp name="-1984867271">&lt;wps:Result</stringProp>
+              <stringProp name="-1471615569">&lt;wps:Reference</stringProp>
+              <stringProp name="-1221343490">schema=&quot;http://quakeml.org/xmlns/quakeml/1.2/QuakeML-1.2.xsd&quot;</stringProp>
+              <stringProp name="1840897800">encoding=&quot;UTF-8&quot;</stringProp>
+              <stringProp name="-733823398">mimeType=&quot;text/xml&quot;</stringProp>
+              <stringProp name="18458481">xlin:href=&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Quakeledger with GeoJSON output (reference)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;wps:Execute service=&quot;WPS&quot; version=&quot;2.0.0&quot; xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0        http://schemas.opengis.net/wps/2.0/wpsExecute.xsd&quot; response=&quot;document&quot; mode=&quot;sync&quot;&gt;&#xd;
+    &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.QuakeledgerProcess&lt;/ows:Identifier&gt;&#xd;
+    &lt;wps:Input id=&quot;mmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;6.6&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;mmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;8.5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;140&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;p&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;0.1&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;etype&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;deaggregation&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlon&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-71.5730623712764&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlat&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-33.1299174879672&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;input-boundingbox&quot;&gt;&#xd;
+        &lt;wps:Data&gt;&#xd;
+            &lt;ows:BoundingBox crs=&quot;EPSG:4326&quot; dimensions=&quot;2&quot;&gt;&#xd;
+                &lt;ows:LowerCorner&gt;-33.56886118255556 -72.1142578125&lt;/ows:LowerCorner&gt;&#xd;
+                &lt;ows:UpperCorner&gt;-32.6671247331203 -70.938720703125&lt;/ows:UpperCorner&gt;&#xd;
+            &lt;/ows:BoundingBox&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Output id=&quot;selectedRows&quot; transmission=&quot;reference&quot; mimeType=&quot;application/vnd.geo+json&quot; encoding=&quot;UTF-8&quot;&gt;&lt;/wps:Output&gt;&#xd;
+&lt;/wps:Execute&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Data Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-35725261">&lt;wps:Output id=&quot;selectedRows&quot;&gt;</stringProp>
+              <stringProp name="-1984867271">&lt;wps:Result</stringProp>
+              <stringProp name="-1471615569">&lt;wps:Reference</stringProp>
+              <stringProp name="1840897800">encoding=&quot;UTF-8&quot;</stringProp>
+              <stringProp name="-911219188">mimeType=&quot;application/vnd.geo+json&quot;</stringProp>
+              <stringProp name="18458481">xlin:href=&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Quakeledger with GML output (reference)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;wps:Execute service=&quot;WPS&quot; version=&quot;2.0.0&quot; xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0        http://schemas.opengis.net/wps/2.0/wpsExecute.xsd&quot; response=&quot;document&quot; mode=&quot;sync&quot;&gt;&#xd;
+    &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.QuakeledgerProcess&lt;/ows:Identifier&gt;&#xd;
+    &lt;wps:Input id=&quot;mmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;6.6&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;mmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;8.5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmin&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;5&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;zmax&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;140&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;p&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;0.1&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;etype&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;deaggregation&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlon&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-71.5730623712764&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;tlat&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;text/xml&quot;&gt;&#xd;
+            &lt;wps:LiteralValue&gt;-33.1299174879672&lt;/wps:LiteralValue&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Input id=&quot;input-boundingbox&quot;&gt;&#xd;
+        &lt;wps:Data&gt;&#xd;
+            &lt;ows:BoundingBox crs=&quot;EPSG:4326&quot; dimensions=&quot;2&quot;&gt;&#xd;
+                &lt;ows:LowerCorner&gt;-33.56886118255556 -72.1142578125&lt;/ows:LowerCorner&gt;&#xd;
+                &lt;ows:UpperCorner&gt;-32.6671247331203 -70.938720703125&lt;/ows:UpperCorner&gt;&#xd;
+            &lt;/ows:BoundingBox&gt;&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Output id=&quot;selectedRows&quot; transmission=&quot;reference&quot; mimeType=&quot;text/xml&quot; schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot; encoding=&quot;UTF-8&quot;&gt;&lt;/wps:Output&gt;&#xd;
+&lt;/wps:Execute&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Data Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-35725261">&lt;wps:Output id=&quot;selectedRows&quot;&gt;</stringProp>
+              <stringProp name="-1984867271">&lt;wps:Result</stringProp>
+              <stringProp name="-1471615569">&lt;wps:Reference</stringProp>
+              <stringProp name="1840897800">encoding=&quot;UTF-8&quot;</stringProp>
+              <stringProp name="-1086326384">schema=&quot;http://schemas.opengis.net/gml/3.2.1/base/feature.xsd&quot;</stringProp>
+              <stringProp name="18458481">xlin:href=&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -6446,6 +7220,128 @@
           <hashTree/>
         </hashTree>
       </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SystemReliabilityProcess" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1373789594000</longProp>
+        <longProp name="ThreadGroup.end_time">1373789594000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">10</stringProp>
+        <stringProp name="ThreadGroup.delay">5</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SR with original input and GeoJSON output" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;wps:Execute service=&quot;WPS&quot; version=&quot;2.0.0&quot; xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0        http://schemas.opengis.net/wps/2.0/wpsExecute.xsd&quot; response=&quot;document&quot; mode=&quot;sync&quot;&gt;&#xd;
+    &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.SystemReliabilityProcess&lt;/ows:Identifier&gt;&#xd;
+    &lt;wps:Input id=&quot;damage_nodes&quot;&gt;&#xd;
+        &lt;wps:Data mimeType=&quot;application/vnd.geo+json&quot;&gt;&#xd;
+{&#xd;
+&quot;type&quot;: &quot;FeatureCollection&quot;,&#xd;
+&quot;name&quot;: &quot;E1_EPN_ExposureNodes_withDamage&quot;,&#xd;
+&quot;features&quot;: [&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 4, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;LASSO&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.99115 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766104.772625000216067, 9917642.46387499943376 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 5, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;SIGCHOS&quot;, &quot;taxonomy&quot;: &quot;Power Plant&quot;, &quot;ProbFailure&quot;: 0.84991 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 735417.364124999148771, 9922426.367 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 7, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;MULALO&quot;, &quot;taxonomy&quot;: &quot;Power Plant&quot;, &quot;ProbFailure&quot;: 0.07749 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766190.103999999351799, 9912014.7835 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 9, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;SAN RAFAEL&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.39467 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 764524.146625000168569, 9896347.5415 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 3, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;MANA&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.7083 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 695223.1108750004787, 9894732.443125 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 2, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;ANGAMARCA&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.67653 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 731003.12887499993667, 9875136.673125 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 8, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;LA COCHA&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.43077 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766514.381249999860302, 9898869.85349999927 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 10, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;CALVARIO&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.53267 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 765821.918624997837469, 9896938.2082499992102 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 1, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;PUJILI&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.60927 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 758898.710250000120141, 9895007.2265 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 6, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 13.8, &quot;Name_Node&quot;: &quot;SALCEDO&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.30424 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 767188.936874999199063, 9885739.502 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 11, &quot;VPRIMARIO&quot;: 230.0, &quot;VSECUNDARI&quot;: 138.0, &quot;Name_Node&quot;: &quot;TOTORAS&quot;, &quot;taxonomy&quot;: &quot;Power Plant&quot;, &quot;ProbFailure&quot;: 0.72976 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766810.934109876397997, 9856370.942138871178031 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 12, &quot;VPRIMARIO&quot;: 138.0, &quot;VSECUNDARI&quot;: 138.0, &quot;Name_Node&quot;: &quot;AMBATO&quot;, &quot;taxonomy&quot;: &quot;Power Plant&quot;, &quot;ProbFailure&quot;: 0.56801 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766802.964108574436978, 9864639.292311161756516 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 13, &quot;VPRIMARIO&quot;: 138.0, &quot;VSECUNDARI&quot;: 138.0, &quot;Name_Node&quot;: &quot;PUCARA&quot;, &quot;taxonomy&quot;: &quot;Power Plant&quot;, &quot;ProbFailure&quot;: 0.27088 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 783381.495682770852, 9881014.288951817899942 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 14, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 69.0, &quot;Name_Node&quot;: &quot;LAIGUA&quot;, &quot;taxonomy&quot;: &quot;Tap&quot;, &quot;ProbFailure&quot;: 0.32316 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 765844.751389403128996, 9904937.210617676377296 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 15, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 69.0, &quot;Name_Node&quot;: &quot;SANTA ROSA&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.74154 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 773160.681473158183508, 9959545.119353417307138 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 16, &quot;VPRIMARIO&quot;: 69.0, &quot;VSECUNDARI&quot;: 69.0, &quot;Name_Node&quot;: &quot;FAIRIS&quot;, &quot;taxonomy&quot;: &quot;Tap&quot;, &quot;ProbFailure&quot;: 0.08664 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 768116.21583494823426, 9875495.241784740239382 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 17, &quot;VPRIMARIO&quot;: 138.0, &quot;VSECUNDARI&quot;: 138.0, &quot;Name_Node&quot;: &quot;VICENTINA&quot;, &quot;taxonomy&quot;: &quot;Substation&quot;, &quot;ProbFailure&quot;: 0.77355 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 780729.355818726471625, 9977022.712616181001067 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 18, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SAN RAFAEL - W&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 762261.468675636569969, 9894487.621349012479186 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 19, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;INDEPENDENT&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 746876.483388291206211, 9902970.963672673329711 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 20, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SALCEDO - SW&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 761996.596171799232252, 9879791.576372776180506 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 21, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SAN RAFAEL - NW&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 756356.201054029981606, 9905365.258044736459851 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 22, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;MULALO - S&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 770938.633139115991071, 9903922.903273375704885 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 23, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;LASSO - S&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 771812.981904450454749, 9912832.296057555824518 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 24, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;LASSO - W&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 752194.474043930647895, 9917605.15327656082809 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 25, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;LASSO - N&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 768902.049733974738047, 9920863.710582004860044 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 26, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;LASSO - SW&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 762838.791430077515543, 9911505.448269676417112 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 27, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SALCEDO - N&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 769643.580526043777354, 9891245.598202349618077 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 28, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SALCEDO - E&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 776815.017099232412875, 9885344.106839733198285 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 29, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;SALCEDO - NW&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 764943.331046151230112, 9885035.164495818316936 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 30, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;INDEPENDENT&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 750998.338214327581227, 9882661.517642688006163 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 31, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;LA COCHA - SW&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 765773.784201959613711, 9898294.942378727719188 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 32, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;CENTRO - SE&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 766801.969619568902999, 9894201.266433268785477 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 33, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;CENTRO - E&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 773310.492182473302819, 9897277.412082433700562 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 34, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;CENTRO - E - UNDERGROUND&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 765305.284219802124426, 9896782.598606929183006 ] } },&#xd;
+{ &quot;type&quot;: &quot;Feature&quot;, &quot;properties&quot;: { &quot;FID&quot;: 35, &quot;VPRIMARIO&quot;: 13.8, &quot;VSECUNDARI&quot;: 0.1, &quot;Name_Node&quot;: &quot;CENTRO RIVER CROSS&quot;, &quot;taxonomy&quot;: &quot;Consumer&quot;, &quot;ProbFailure&quot;: 0.0 }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 765276.695747714489698, 9896391.617403216660023 ] } }&#xd;
+]&#xd;
+}&#xd;
+        &lt;/wps:Data&gt;&#xd;
+    &lt;/wps:Input&gt;&#xd;
+    &lt;wps:Output id=&quot;damage_consumer_areas&quot; transmission=&quot;value&quot; mimeType=&quot;application/vnd.geo+json&quot; encoding=&quot;UTF-8&quot;&gt;&lt;/wps:Output&gt;&#xd;
+&lt;/wps:Execute&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Data Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-129447952">&lt;wps:Data encoding=&quot;UTF-8&quot; mimeType=&quot;application/vnd.geo+json&quot;&gt;</stringProp>
+              <stringProp name="1865527686">&lt;wps:Output id=&quot;damage_consumer_areas&quot;&gt;</stringProp>
+              <stringProp name="-1984867271">&lt;wps:Result</stringProp>
+              <stringProp name="-640610121">{&quot;type&quot;:&quot;FeatureCollection&quot;</stringProp>
+              <stringProp name="2030431725">&quot;properties&quot;:</stringProp>
+              <stringProp name="1040278807">&quot;FID&quot;:</stringProp>
+              <stringProp name="-405129849">&quot;population&quot;:</stringProp>
+              <stringProp name="-79081090">&quot;Shape_Length&quot;:</stringProp>
+              <stringProp name="-31871181">&quot;Prob_Disruption&quot;:</stringProp>
+              <stringProp name="2079633511">&quot;Area&quot;:</stringProp>
+              <stringProp name="-1858612507">&quot;Name&quot;:</stringProp>
+              <stringProp name="-488414590">&quot;Name&quot;:&quot;CENTRO - E - UNDERGROUND&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="QuakeMLTransformationProcess" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -8107,74 +9003,6 @@ ${__FileToString(./example_shakemap.xml,,)}&#xd;
               <stringProp name="2111841679">&quot;expo&quot;:{</stringProp>
               <stringProp name="847901181">&quot;name&quot;:&quot;</stringProp>
               <stringProp name="-1984867271">&lt;wps:Result</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NrmlTransformation to NRML" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;wps:Execute service=&quot;WPS&quot; version=&quot;2.0.0&quot; xmlns:wps=&quot;http://www.opengis.net/wps/2.0&quot; xmlns:ows=&quot;http://www.opengis.net/ows/2.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.opengis.net/wps/2.0        http://schemas.opengis.net/wps/2.0/wpsExecute.xsd&quot; response=&quot;document&quot; mode=&quot;sync&quot;&gt;&#xd;
-    &lt;ows:Identifier&gt;org.n52.gfz.riesgos.algorithm.impl.NrmlTransformationProcess&lt;/ows:Identifier&gt;&#xd;
-    &lt;wps:Input id=&quot;input&quot;&gt;&#xd;
-    &lt;wps:Data encoding=&quot;UTF-8&quot; mimeType=&quot;application/vnd.geo+json&quot;&gt;&#xd;
-{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;features&quot;:[{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:92,&quot;taxonomy&quot;:&quot;CR+PC\/LWAL\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:985250.0},&quot;id&quot;:&quot;1&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:3208,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2337500.0},&quot;id&quot;:&quot;10&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:641,&quot;taxonomy&quot;:&quot;MCF\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;11&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:862,&quot;taxonomy&quot;:&quot;MR\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:676800.0},&quot;id&quot;:&quot;12&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:302,&quot;taxonomy&quot;:&quot;MR\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;13&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:52,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:32000.0},&quot;id&quot;:&quot;14&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:20,&quot;occupanciesInday&quot;:10,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:712,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:80000.0},&quot;id&quot;:&quot;15&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:5,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:88,&quot;taxonomy&quot;:&quot;MUR+STDRE\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:105000.0},&quot;id&quot;:&quot;16&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:4,&quot;taxonomy&quot;:&quot;MUR\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:26250.0},&quot;id&quot;:&quot;17&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:1959,&quot;taxonomy&quot;:&quot;MUR\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:26250.0},&quot;id&quot;:&quot;18&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:2519,&quot;taxonomy&quot;:&quot;UNK&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;19&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:454,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;2&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:746,&quot;taxonomy&quot;:&quot;W+WLI\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;20&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:3902,&quot;taxonomy&quot;:&quot;W+WLI\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;21&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:1160,&quot;taxonomy&quot;:&quot;W+WS\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;22&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:1215,&quot;taxonomy&quot;:&quot;W+WS\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;23&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:203,&quot;taxonomy&quot;:&quot;CR+PC\/LWAL\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:985250.0},&quot;id&quot;:&quot;24&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1097,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;25&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:288,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51500.0},&quot;id&quot;:&quot;26&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:366,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;27&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:138,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51765.0},&quot;id&quot;:&quot;28&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:35,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:8,19&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;29&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:89,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51500.0},&quot;id&quot;:&quot;3&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:268,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:850000.0},&quot;id&quot;:&quot;30&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:55,&quot;occupanciesInday&quot;:25,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1669,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;31&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:878,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2762500.0},&quot;id&quot;:&quot;32&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:3980,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2337500.0},&quot;id&quot;:&quot;33&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1126,&quot;taxonomy&quot;:&quot;MCF\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;34&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:931,&quot;taxonomy&quot;:&quot;MR\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:676800.0},&quot;id&quot;:&quot;35&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:416,&quot;taxonomy&quot;:&quot;MR\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;36&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:620,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:32000.0},&quot;id&quot;:&quot;37&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:20,&quot;occupanciesInday&quot;:10,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:6677,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:80000.0},&quot;id&quot;:&quot;38&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:5,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:194,&quot;taxonomy&quot;:&quot;MUR+STDRE\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:105000.0},&quot;id&quot;:&quot;39&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:278,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;4&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1,&quot;taxonomy&quot;:&quot;MUR\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:26250.0},&quot;id&quot;:&quot;40&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1824,&quot;taxonomy&quot;:&quot;MUR\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:26250.0},&quot;id&quot;:&quot;41&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:3649,&quot;taxonomy&quot;:&quot;UNK&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;42&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1472,&quot;taxonomy&quot;:&quot;W+WLI\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;43&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:10897,&quot;taxonomy&quot;:&quot;W+WLI\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;44&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:1668,&quot;taxonomy&quot;:&quot;W+WS\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;45&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.5834,-33.0836]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05101&quot;,&quot;number&quot;:3327,&quot;taxonomy&quot;:&quot;W+WS\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;46&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:185,&quot;taxonomy&quot;:&quot;CR+PC\/LWAL\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:985250.0},&quot;id&quot;:&quot;47&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1440,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;48&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:487,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DNO\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51500.0},&quot;id&quot;:&quot;49&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:35,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51765.0},&quot;id&quot;:&quot;5&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:499,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;50&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:364,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:4,7&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:51765.0},&quot;id&quot;:&quot;51&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:94,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:8,19&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;52&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:58,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:850000.0},&quot;id&quot;:&quot;53&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:55,&quot;occupanciesInday&quot;:25,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:341,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;54&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1763,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2762500.0},&quot;id&quot;:&quot;55&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:5417,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2337500.0},&quot;id&quot;:&quot;56&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1586,&quot;taxonomy&quot;:&quot;MCF\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;57&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1343,&quot;taxonomy&quot;:&quot;MR\/DNO\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:676800.0},&quot;id&quot;:&quot;58&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:508,&quot;taxonomy&quot;:&quot;MR\/DUC\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;59&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:8,&quot;taxonomy&quot;:&quot;CR\/LWAL\/DUC\/H:8,19&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:1168750.0},&quot;id&quot;:&quot;6&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:134,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:32000.0},&quot;id&quot;:&quot;60&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:20,&quot;occupanciesInday&quot;:10,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1363,&quot;taxonomy&quot;:&quot;MUR+ADO\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:80000.0},&quot;id&quot;:&quot;61&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:5,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:258,&quot;taxonomy&quot;:&quot;MUR+STDRE\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:105000.0},&quot;id&quot;:&quot;62&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:10,&quot;occupanciesInday&quot;:5,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:2898,&quot;taxonomy&quot;:&quot;MUR\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:26250.0},&quot;id&quot;:&quot;63&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:4931,&quot;taxonomy&quot;:&quot;UNK&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;64&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:1380,&quot;taxonomy&quot;:&quot;W+WLI\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;65&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:7883,&quot;taxonomy&quot;:&quot;W+WLI\/H:1,3&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;66&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:192,&quot;occupanciesInday&quot;:96,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:2229,&quot;taxonomy&quot;:&quot;W+WS\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;67&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.4887,-32.9192]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:6,&quot;occupanciesInday&quot;:3,&quot;assetId&quot;:&quot;AREA # 05109&quot;,&quot;number&quot;:2385,&quot;taxonomy&quot;:&quot;W+WS\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:10740.0},&quot;id&quot;:&quot;68&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:31,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:850000.0},&quot;id&quot;:&quot;7&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:55,&quot;occupanciesInday&quot;:25,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:178,&quot;taxonomy&quot;:&quot;ER+ETR\/H:1,2&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:4037500.0},&quot;id&quot;:&quot;8&quot;},{&quot;type&quot;:&quot;Feature&quot;,&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-71.289,-33.0533]},&quot;properties&quot;:{&quot;exposureModelId&quot;:&quot;SARA_v1.0&quot;,&quot;exposureModelCategory&quot;:&quot;buildings&quot;,&quot;exposureModelTaxonomySource&quot;:&quot;GEM&quot;,&quot;description&quot;:&quot;GEM-SARA Model, project RIESGOS&quot;,&quot;costTypeName&quot;:&quot;structural&quot;,&quot;costTypeType&quot;:&quot;per_asset&quot;,&quot;costTypeUnit&quot;:&quot;USD&quot;,&quot;occupanciesInnight&quot;:12,&quot;occupanciesInday&quot;:6,&quot;assetId&quot;:&quot;AREA # 05106&quot;,&quot;number&quot;:1363,&quot;taxonomy&quot;:&quot;MCF\/DNO\/H:1&quot;,&quot;costType&quot;:&quot;structural&quot;,&quot;cost&quot;:2762500.0},&quot;id&quot;:&quot;9&quot;}]}&#xd;
-    &lt;/wps:Data&gt;&#xd;
-    &lt;/wps:Input&gt;&#xd;
-    &lt;wps:Output id=&quot;output&quot; transmission=&quot;value&quot; mimeType=&quot;application/vnd.geo+json&quot; encoding=&quot;UTF-8&quot;&gt;&lt;/wps:Output&gt;&#xd;
-&lt;/wps:Execute&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200 Response Code" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="49586">200</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">8</intProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Data Response" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1529634306">&lt;wps:Data schema=&quot;http://openquake.org/xmlns/nrml/0.5&quot; encoding=&quot;UTF-8&quot; mimeType=&quot;text/xml&quot;&gt;</stringProp>
-              <stringProp name="-1938268896">&lt;wps:Output id=&quot;output&quot;&gt;</stringProp>
-              <stringProp name="58801311">&lt;nrml</stringProp>
-              <stringProp name="684322147">&lt;exposureModel id=&quot;SARA_v1.0&quot; category=&quot;buildings&quot; taxonomySource=&quot;GEM&quot;&gt;</stringProp>
-              <stringProp name="1949336062">&lt;description&gt;</stringProp>
-              <stringProp name="323087357">&lt;conversions&gt;</stringProp>
-              <stringProp name="784630111">&lt;assets&gt;</stringProp>
-              <stringProp name="1628338764">&lt;asset id=&quot;</stringProp>
-              <stringProp name="1274305071">&lt;occupancies&gt;</stringProp>
-              <stringProp name="355983860">&lt;costs&gt;</stringProp>
-              <stringProp name="-1412283615">&lt;location lon=&quot;</stringProp>
-              <stringProp name="-1984867271">&lt;wps:Result</stringProp>
-              <stringProp name="-908696175">xmlns:gml=&quot;http://www.opengis.net/gml&quot;</stringProp>
-              <stringProp name="-1073580409">xmlns=&quot;http://openquake.org/xmlns/nrml/0.5&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
